@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Erika Antje Haasbroek | Portfolio</title>
+<style>
+  :root {
+    --baby-green: #d9f0d9;
+    --baby-purple: #c9b8f8;
+    --rose-light: #f8c3c3;
+    --rose-dark: #d46a6a;
+    --ivy-green-light: #a3c9a8;
+    --ivy-green-dark: #6b8e6d;
+    --text-dark: #2f2f2f;
+    --background: #f7faf7;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--baby-green);
+    color: var(--text-dark);
+    margin: 0; padding: 2rem;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  header img {
+    width: 150px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    border: 5px solid var(--baby-purple);
+    box-shadow: 0 0 10px var(--baby-purple);
+  }
+  header h1 {
+    font-size: 2.8rem;
+    color: var(--ivy-green-dark);
+    margin-bottom: 0.3rem;
+    font-weight: 700;
+  }
+  header p {
+    color: var(--ivy-green-light);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  .button-download {
+    background: var(--rose-light);
+    color: var(--rose-dark);
+    border: 2px solid var(--rose-dark);
+    border-radius: 30px;
+    padding: 0.6rem 1.6rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(212,106,106,0.4);
+  }
+  .button-download:hover {
+    background: var(--rose-dark);
+    color: white;
+  }
+
+  nav {
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  #menuToggle {
+    background: var(--rose-light);
+    border: 2px solid var(--rose-dark);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(212,106,106,0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin: 0 auto;
+    transition: background 0.3s, border-color 0.3s;
+  }
+  #menuToggle:hover {
+    background: var(--rose-dark);
+  }
+  #menuToggle span {
+    display: block;
+    height: 4px;
+    width: 25px;
+    background: var(--rose-dark);
+    border-radius: 2px;
+    transition: background 0.3s;
+  }
+  #menuToggle:hover span {
+    background: white;
+  }
+
+  #navLinks {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+    display: none;
+    text-align: center;
+  }
+  #navLinks.nav-open {
+    display: block;
+  }
+  #navLinks li {
+    margin: 0.7rem 0;
+  }
+  #navLinks a {
+    text-decoration: none;
+    color: var(--ivy-green-dark);
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+  }
+  #navLinks a:hover {
+    color: var(--baby-purple);
+  }
+
+  /* Social icons container */
+  .social-links {
+    text-align: center;
+    margin: 1.5rem 0;
+  }
+  .social-links a {
+    display: inline-block;
+    background: var(--baby-purple);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+    color: white;
+    font-size: 28px;
+    line-height: 50px;
+    transition: background 0.3s;
+  }
+  .social-links a:hover {
+    background: var(--rose-light);
+    color: var(--rose-dark);
+  }
+
+  section {
+    background: white;
+    margin: 2rem auto;
+    padding: 1.5rem 2rem;
+    max-width: 850px;
+    border-radius: 25px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    position: relative;
+    clip-path: polygon(
+      50% 0%, 75% 12%, 88% 38%, 75% 75%, 50% 100%, 25% 75%, 12% 38%, 25% 12%
+    ); /* flower petal shape */
+  }
+
+  .section-title {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--ivy-green-dark);
+    margin-bottom: 1rem;
+    border-bottom: 3px solid var(--baby-purple);
+    display: inline-block;
+    padding-bottom: 4px;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  /* Skills as bubbles with ivy decoration */
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+  .skill-bubble {
+    background: var(--baby-purple);
+    color: var(--ivy-green-dark);
+    padding: 0.7rem 1.3rem;
+    border-radius: 50px;
+    position: relative;
+    font-weight: 600;
+    box-shadow: 0 3px 6px rgba(101, 84, 178, 0.4);
+    transition: background 0.3s;
+    min-width: 120px;
+    text-align: center;
+  }
+  .skill-bubble:hover {
+    background: var(--rose-light);
+    color: var(--rose-dark);
+    box-shadow: 0 6px 12px rgba(212, 106, 106, 0.6);
+  }
+  .skill-bubble::after {
+    content: "🍃";
+    position: absolute;
+    top: -12px;
+    right: 8px;
+    font-size: 18px;
+    filter: drop-shadow(0 0 1px #6b8e6d);
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 3rem;
+    color: var(--ivy-green-dark);
+    font-size: 0.9rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 650px) {
+    body {
+      padding: 1rem;
+    }
+    section {
+      max-width: 100%;
+      clip-path: none;
+      border-radius: 15px;
+    }
+    #menuToggle {
+      margin-bottom: 1rem;
+    }
+  }
+</style>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+</head>
+<body>
+
+
+<header>
+  <img src="profile.jpg" alt="Erika Antje Haasbroek" />
+  <h1>Erika Antje Haasbroek</h1>
+  <p>Aspiring IT Developer</p>
+  <a href="Erika Haasbroek CV.pdf" download="Erika_Haasbroek_Resume.pdf" class="button-download">Download Resume</a>
+</header>
+
+<nav>
+  <button id="menuToggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="social-links" aria-label="Social Links">
+  <a href="https://github.com/Erika-Haasbroek" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+  <a href="https://www.linkedin.com/in/erika-haasbroek-383589376/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+</div>
+
+<section id="about">
+  <h2 class="section-title">About Me</h2>
+  <p>
+    Hardworking and dedicated, with dual South African and Italian nationality, pursuing a BSc in IT at North-West University. Experienced in education, agriculture, and childcare, shaping a people-focused approach to technology. Skilled in Java, Python, C++, and C#. I aim to create tech solutions for underserved communities and thrive in multicultural environments.
+  </p>
+</section>
+
+<section id="education">
+  <h2 class="section-title">Education</h2>
+  <p><strong>Secondary School:</strong> Balfour Combined, South Africa — Graduated Nov 2020</p>
+  <p><strong>BSc Computer Science:</strong> North West University, Potch</p>
+  <p><strong>Relevant Coursework:</strong> OOP (Java), Data Structures & Algorithms, Databases (Oracle & SQL), AI, UI Programming (C#), Info Security, Data Analytics, System Analysis, Decision Support Systems, Financial Accountancy, Intro to Business Management</p>
+</section>
+
+<section id="projects">
+  <h2 class="section-title">Projects</h2>
+  <ul>
+    <li>
+      <strong>Virtual CV Website:</strong> Responsive, interactive site showcasing skills and experience, built entirely in VS Code.dev with GitHub version control.<br/>
+      <a href="https://github.com/Erika-Haasbroek/Virtual-CV" target="_blank">View on GitHub</a>
+    </li>
+    <li>
+      <strong>DVD Rental System:</strong> Custom C#.NET app simulating DVD rental store operations with MS SQL Server backend.<br/>
+      <a href="https://github.com/Erika-Haasbroek/CMPG223_Group10_DVD_Rental" target="_blank">View on GitHub</a>
+    </li>
+  </ul>
+</section>
+
+<section id="skills">
+  <h2 class="section-title">Skills</h2>
+
+  <h3>Languages</h3>
+  <div class="skills-grid">
+    <div class="skill-bubble">Afrikaans (fluent)</div>
+    <div class="skill-bubble">English (fluent)</div>
+    <div class="skill-bubble">German B1</div>
+    <div class="skill-bubble">Java</div>
+    <div class="skill-bubble">SQL</div>
+    <div class="skill-bubble">C++</div>
+    <div class="skill-bubble">C#</div>
+    <div class="skill-bubble">Python</div>
+  </div>
+
+  <h3>Industry Knowledge</h3>
+  <div class="skills-grid">
+    <div class="skill-bubble">Web Development (Front-End)</div>
+    <div class="skill-bubble">Agile Methodology</div>
+    <div class="skill-bubble">Database Design</div>
+    <div class="skill-bubble">Database Development</div>
+    <div class="skill-bubble">SDLC</div>
+    <div class="skill-bubble">Artificial Intelligence</div>
+  </div>
+
+  <h3>Tools & Technologies</h3>
+  <div class="skills-grid">
+    <div class="skill-bubble">GitHub</div>
+    <div class="skill-bubble">Oracle</div>
+    <div class="skill-bubble">Visual Studio</div>
+    <div class="skill-bubble">BlueJ</div>
+    <div class="skill-bubble">Draw.io</div>
+    <div class="skill-bubble">CodeBlocks</div>
+  </div>
+
+  <h3>Interpersonal Skills</h3>
+  <div class="skills-grid">
+    <div class="skill-bubble">Effective Communication</div>
+    <div class="skill-bubble">Team Collaboration</div>
+    <div class="skill-bubble">Problem Solving</div>
+    <div class="skill-bubble">Time Management</div>
+    <div class="skill-bubble">Attention to Detail</div>
+    <div class="skill-bubble">Working Under Pressure</div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2 class="section-title">Contact</h2>
+  <p>Email: <a href="mailto:erikahaasbroek86@gmail.com">erikahaasbroek86@gmail.com</a></p>
+  <p>GitHub: <a href="https://github.com/Erika-Haasbroek" target="_blank">github.com/Erika-Haasbroek</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/erika-haasbroek-383589376/" target="_blank">linkedin.com/in/Erika-Haasbroek</a></p>
+</section>
+
+<footer>
+  <p>&copy; 2025 Erika Haasbroek. Built with HTML & CSS.</p>
+</footer>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('nav-open');
+  });
+</script>
+
+</body>
+</html>

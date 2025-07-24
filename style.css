@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+:root {
+  --rose: #f8c3c3;        /* Light romantic red */
+  --ivy: #a3c9a8;         /* Soft leafy green */
+  --stem: #6b8e6d;        /* Earthy green for text/shadow */
+  --petal: #ffeaea;       /* Softest pink-white */
+  --accent: #d6b3e6;      /* Baby purple as secondary */
+  --background: #f3fdf6;  /* Subtle green-tinged white */
+  --text-dark: #2f2f2f;
+}
+
+
+body {
+  margin: 0;
+  font-family: 'Comfortaa', cursive;
+  background: var(--bg);
+  color: var(--text);
+  padding: 2rem;
+  overflow-x: hidden;
+}
+
+.center {
+  text-align: center;
+}
+
+.flower-wrapper {
+  max-width: 900px;
+  margin: auto;
+  position: relative;
+}
+
+.profile-pic {
+  width: 150px;
+  border-radius: 50%;
+  border: 5px solid var(--accent);
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: var(--accent);
+}
+
+.icon-links img {
+  width: 40px;
+  margin: 0 0.5rem;
+  transition: transform 0.3s ease;
+}
+.icon-links img:hover {
+  transform: scale(1.1);
+}
+
+.dropdown-nav {
+  text-align: center;
+  margin: 2rem 0;
+}
+.dropdown-nav select {
+  padding: 0.5rem;
+  border-radius: 1rem;
+  border: 2px solid var(--accent);
+  background-color: white;
+  font-size: 1rem;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.petal {
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 2px dashed var(--accent);
+  border-radius: 50%;
+  width: 280px;
+  height: 280px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 20px rgba(217, 194, 242, 0.4);
+  text-align: center;
+}
+
+.petal h2 {
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.skill-flow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  max-width: 240px;
+}
+.flow-item {
+  background: var(--accent);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+.flow-item:hover {
+  transform: scale(1.1);
+}
+
+footer {
+  margin-top: 3rem;
+  opacity: 0.6;
+  font-size: 0.9rem;
+}
